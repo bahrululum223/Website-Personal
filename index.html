@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio – Muhammad Bahrul Ulum</title>
+  <meta name="description" content="Portfolio Muhammad Bahrul Ulum – Bachelor Graduate Computer Engineering, Information Technology Enthusiast." />
+  <meta name="theme-color" content="#0ea5e9" />
+
+  <style>
+    :root{
+      --bg:#070b18;
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.08);
+      --text:#e5e7eb;
+      --muted:#a3a3a3;
+
+      --brand:#22d3ee;
+      --accent:#38bdf8;
+      --ring:#22d3ee55;
+
+      --stroke:rgba(255,255,255,.12);
+      --shadow:0 20px 60px rgba(0,0,0,.35);
+      --radius:22px;
+    }
+
+    :root.light{
+      --bg:#f6f8ff;
+      --card:rgba(255,255,255,.9);
+      --card2:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+
+      --brand:#0ea5e9;
+      --accent:#0891b2;
+      --ring:#0ea5e955;
+
+      --stroke:rgba(15,23,42,.12);
+      --shadow:0 20px 60px rgba(2,6,23,.12);
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto;
+      background:var(--bg);
+      color:var(--text);
+      overflow-x:hidden;
+    }
+    a{text-decoration:none;color:inherit}
+    .container{max-width:1140px;margin:auto;padding:24px}
+
+    /* BACKGROUND DECOR */
+    .bg-orb{
+      position:fixed;
+      inset:auto auto auto auto;
+      width:480px;height:480px;
+      border-radius:999px;
+      filter:blur(80px);
+      opacity:.35;
+      z-index:-1;
+      pointer-events:none;
+      background:radial-gradient(circle at 30% 30%, var(--brand), transparent 55%),
+                 radial-gradient(circle at 70% 70%, var(--accent), transparent 55%);
+      top:-120px;right:-120px;
+    }
+    .bg-orb.orb2{
+      width:520px;height:520px;
+      bottom:-180px;left:-160px;
+      top:auto;right:auto;
+      opacity:.25;
+    }
+
+    /* NAV */
+    .nav{
+      position:sticky;top:0;z-index:10;
+      backdrop-filter:blur(14px);
+      background:linear-gradient(
+        180deg,
+        rgba(0,0,0,.38),
+        rgba(0,0,0,.10)
+      );
+      border-bottom:1px solid var(--stroke);
+    }
+    :root.light .nav{
+      background:rgba(255,255,255,.65);
+    }
+    .nav-inner{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:10px;
+      font-weight:800;
+      letter-spacing:.2px;
+    }
+    .logo-dot{
+      width:10px;height:10px;border-radius:999px;
+      background:linear-gradient(135deg,var(--brand),var(--accent));
+      box-shadow:0 0 0 6px var(--ring);
+    }
+    .menu{
+      display:flex;gap:14px;align-items:center;
+      flex-wrap:wrap;justify-content:flex-end
+    }
+    .menu a{
+      color:var(--muted);
+      font-weight:700;
+      font-size:14px;
+      position:relative;
+      padding:10px 10px;
+      border-radius:999px;
+      transition:.25s ease;
+    }
+    .menu a:hover{
+      color:var(--text);
+      background:rgba(255,255,255,.06);
+    }
+    .menu a.active{
+      color:var(--text);
+      background:rgba(255,255,255,.08);
+      border:1px solid var(--stroke);
+    }
+
+    .btn{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:800;
+      cursor:pointer;
+      transition:.25s ease;
+    }
+    .btn:hover{
+      transform:translateY(-1px);
+      box-shadow:var(--shadow);
+    }
+
+    .btn-primary{
+      border:none;
+      background:linear-gradient(135deg,var(--brand),var(--accent));
+      color:#001018;
+    }
+    .btn-ghost{
+      background:transparent;
+    }
+
+    /* HERO */
+    .section{padding:70px 0}
+    .hero{
+      position:relative;
+      padding-top:56px;
+    }
+
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.25fr .75fr;
+      gap:36px;
+      align-items:center;
+    }
+    @media(max-width:900px){
+      .hero-grid{grid-template-columns:1fr;text-align:center}
+      .menu{display:none}
+    }
+
+    .badge{
+      display:inline-flex;
+      gap:8px;
+      align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.06);
+      color:var(--muted);
+      font-weight:700;
+      font-size:13px;
+      margin-bottom:14px;
+    }
+    .badge b{color:var(--text)}
+    .hero h1{
+      font-size:46px;
+      line-height:1.1;
+      margin:0 0 12px;
+      letter-spacing:-.8px;
+    }
+    .hero h1 .name{
+      background:linear-gradient(135deg,var(--brand),var(--accent));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+    .lead{
+      color:var(--muted);
+      max-width:70ch;
+      margin:0 0 18px;
+      font-size:16px;
+      line-height:1.7;
+    }
+
+    .hero-actions{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin:18px 0 10px;
+    }
+    @media(max-width:900px){
+      .hero-actions{justify-content:center}
+    }
+
+    .mini-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:14px;
+    }
+    @media(max-width:900px){
+      .mini-links{justify-content:center}
+    }
+    .pill{
+      padding:10px 12px;border-radius:999px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.05);
+      font-size:13px;
+      color:var(--text);
+      transition:.25s ease;
+    }
+    .pill span{color:var(--muted)}
+    .pill:hover{
+      transform:translateY(-2px);
+      box-shadow:var(--shadow);
+    }
+
+    /* PROFILE */
+    .profile-wrap{
+      width:230px;height:230px;
+      border-radius:999px;
+      margin:auto;
+      position:relative;
+      display:grid;
+      place-items:center;
+      background:radial-gradient(circle at 30% 30%, rgba(34,211,238,.25), transparent 55%),
+                 radial-gradient(circle at 70% 70%, rgba(56,189,248,.22), transparent 55%);
+      border:1px solid var(--stroke);
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .profile-img{
+      width:100%;height:100%;
+      object-fit:cover;
+      border-radius:999px;
+      transform:scale(1.02);
+      filter:saturate(1.05);
+    }
+
+    /* CARDS */
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      padding:22px;
+      border:1px solid var(--stroke);
+      box-shadow:0 10px 30px rgba(0,0,0,.18);
+      transition:.25s ease;
+    }
+    .card:hover{
+      transform:translateY(-4px);
+      box-shadow:var(--shadow);
+    }
+    h2{
+      margin:0 0 16px;
+      letter-spacing:-.4px;
+      font-size:26px;
+    }
+    h3{margin:0 0 10px;font-size:18px}
+    .meta{color:var(--muted);font-size:14px;margin-top:2px}
+
+    .grid-2{
+      display:grid;
+      gap:18px;
+      grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    }
+
+    .tagline{
+      color:var(--muted);
+      margin-top:-8px;
+      margin-bottom:18px;
+      line-height:1.6;
+    }
+
+    ul{margin:10px 0 0;padding-left:18px;color:var(--muted)}
+    li{margin:7px 0;line-height:1.5}
+
+    /* SKILLS */
+    .skills{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:14px
+    }
+    .skill{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:10px 12px;
+      border:1px solid var(--stroke);
+      border-radius:16px;
+      background:rgba(255,255,255,.03);
+    }
+    .skill b{min-width:120px}
+    .meter{
+      flex:1;height:10px;background:rgba(255,255,255,.10);
+      border-radius:999px;overflow:hidden
+    }
+    .meter span{
+      display:block;height:100%;width:0%;
+      background:linear-gradient(90deg,var(--brand),var(--accent));
+      transition:width 1.2s ease
+    }
+
+    /* FEATURE PROJECT */
+    .project-top{
+      display:flex;align-items:flex-start;justify-content:space-between;gap:12px
+    }
+    .chip{
+      font-size:12px;
+      font-weight:800;
+      color:#001018;
+      background:linear-gradient(135deg,var(--brand),var(--accent));
+      padding:6px 10px;
+      border-radius:999px;
+      white-space:nowrap;
+    }
+
+    /* TIMELINE */
+    .timeline{
+      position:relative;
+      padding-left:18px;
+    }
+    .timeline::before{
+      content:"";
+      position:absolute;
+      left:6px;top:8px;bottom:8px;
+      width:2px;
+      background:linear-gradient(180deg,var(--brand),transparent);
+      opacity:.7;
+    }
+    .t-item{
+      position:relative;
+      padding:14px 0 14px 18px;
+    }
+    .t-item::before{
+      content:"";
+      position:absolute;
+      left:-1px;top:22px;
+      width:12px;height:12px;border-radius:999px;
+      background:linear-gradient(135deg,var(--brand),var(--accent));
+      box-shadow:0 0 0 6px var(--ring);
+    }
+
+    /* REVEAL */
+    .reveal{opacity:0;transform:translateY(26px);transition:.85s ease}
+    .reveal.show{opacity:1;transform:none}
+
+    /* FOOTER */
+    footer{
+      border-top:1px solid var(--stroke);
+      color:var(--muted);
+      padding:28px 0;
+      text-align:center;
+    }
+
+    /* SCROLL TOP */
+    #toTop{
+      position:fixed;
+      bottom:22px;right:22px;
+      padding:12px 14px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      background:rgba(255,255,255,.08);
+      color:var(--text);
+      cursor:pointer;
+      display:none;
+      box-shadow:var(--shadow);
+    }
+    #toTop:hover{transform:translateY(-2px)}
+  
+.project-img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:16px;
+  margin-bottom:15px;
+  border:1px solid var(--stroke);
+  transition:.3s ease;
+}
+.project-img:hover{transform:scale(1.02);}
+.project-links{
+  display:flex;
+  gap:10px;
+  margin-top:15px;
+  flex-wrap:wrap;
+}
+
+</style>
+</head>
+
+<body>
+  <div class="bg-orb"></div>
+  <div class="bg-orb orb2"></div>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">
+        <span class="logo-dot"></span>
+        <span>Muhammad Bahrul Ulum</span>
+      </div>
+
+      <div class="menu">
+        <a href="#about">About</a>
+        <a href="#skills">Skill</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#org">Organization</a>
+        <a href="#cert">Certification</a>
+        <a href="#contact">Contact</a>
+        <button class="btn" id="themeBtn" title="Change theme">🌓</button>
+      </div>
+
+      <button class="btn" id="themeBtnMobile" title="Change theme" style="display:none">🌓</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="container section hero reveal">
+    <div class="hero-grid">
+
+      <div>
+        <div class="badge">✨ <b>Bachelor Graduate</b> • Computer Engineering • Information Technology Enthusiast</div>
+
+        <h1>
+          Muhammad Bahrul 'Ulum'
+        </h1>
+
+        <p class="lead">
+         Computer Engineering graduate from Universitas Brawijaya with strong analytical,
+        problem-solving, and digital transformation skills. Experienced in developing efficient
+        business solutions through system integration, automation, and data-driven processes during
+        my experience at PT Telekomunikasi Indonesia. Adaptable, detail-oriented, and highly
+        motivated to grow in the banking industry, with an interest in financial services, business
+        operations, and strategic problem solving. Possess strong communication, teamwork, and
+        project coordination abilities, supported by a technical background in Python, JavaScript, and
+        digital systems development.
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#projects">My Projects</a>
+          <a class="btn btn-ghost" href="#contact">Contact Me</a>
+        </div>
+
+        <div class="mini-links">
+          <a class="pill" href="mailto:bahrululum223@gmail.com">
+            <span>Email:</span> bahrululum223@gmail.com
+          </a>
+          <a class="pill" href="https://wa.me/6282240249489" target="_blank" rel="noreferrer">
+            <span>WhatsApp:</span> +62 822-4024-9489
+          </a>
+          <a class="pill" href="https://www.linkedin.com/in/bahrululum223" target="_blank" rel="noreferrer">
+            <span>LinkedIn:</span> /in/bahrululum223
+          </a>
+          <a class="pill" href="https://github.com/bahrululum223" target="_blank" rel="noreferrer">
+            <span>GitHub:</span> /bahrululum223
+          </a>
+          <span class="pill"><span>Location:</span> Cirebon, Jawa Barat</span>
+        </div>
+      </div>
+
+      <div class="profile-wrap">
+        <img src="profil.jpeg" alt="Foto Muhammad Bahrul Ulum" class="profile-img" />
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section class="container section reveal" id="about">
+    <h2>About me</h2>
+    <p class="tagline">
+      A brief overview of my profile and career focus.
+    </p>
+    <div class="card">
+      <p style="margin:0;color:var(--muted);line-height:1.75">
+        I am a Computer Engineering graduate from Universitas Brawijaya with a focus on backend development and digital system development to improve work efficiency. 
+        I have experience in API integration and cross-platform integration for business operations automation, including building automation solutions across two different digital platforms at PT Telekomunikasi Indonesia. 
+        I am proficient in Python, JavaScript, and MATLAB.
+      </p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="container section reveal" id="skills">
+    <h2>Skills</h2>
+    <p class="tagline">
+      Tools and skills I frequently use to build digital solutions.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Hard Skills</h3>
+        <div class="skills" style="margin-top:14px">
+          <div class="skill"><b>Python</b><div class="meter"><span data-skill="95"></span></div></div>
+          <div class="skill"><b>JavaScript</b><div class="meter"><span data-skill="95"></span></div></div>
+          <div class="skill"><b>Matlab</b><div class="meter"><span data-skill="90"></span></div></div>
+          <div class="skill"><b>Microsoft Office</b><div class="meter"><span data-skill="95"></span></div></div>
+          <div class="skill"><b>Google Workspace</b><div class="meter"><span data-skill="95"></span></div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Soft Skills & Language</h3>
+        <ul>
+          <li>Teamwork, time and priority management, communication, critical thinking</li>
+          <li>Creativity, discipline, and strong work ethic</li>
+          <li><b>Language:</b> Indonesia (Native), English (Intermediate)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  
+<section class="container section reveal" id="projects">
+  <h2>Featured Projects</h2>
+  <p class="tagline">
+    Several projects that showcase my capabilities in IT, automation, UI/UX design, and data processing.
+  </p>
+
+  <div class="grid-2">
+
+    <div class="card">
+      <a href="https://www.figma.com/design/EEG1UqqA16tgbzCewCmhjU/Apps-Absensi" target="_blank">
+        <img src="absensi.png" alt="Attendance Application" class="project-img">
+      </a>
+
+      <div class="project-top">
+        <div>
+          <h3>Attendance Management Application</h3>
+          <p class="meta">Figma • UI/UX Design</p>
+        </div>
+        <span class="chip">Design</span>
+      </div>
+
+      <ul>
+        <li>Designed a mobile attendance management application.</li>
+        <li>Created user flow and interactive prototype in Figma.</li>
+        <li>Focused on user-friendly experience and attendance monitoring.</li>
+      </ul>
+
+      <div class="project-links">
+        <a href="https://www.figma.com/proto/EEG1UqqA16tgbzCewCmhjU/Apps-Absensi?node-id=0-1&t=YFkJUVOkw9E1GWVQ-1" target="_blank" class="btn btn-primary">
+          View Prototype
+        </a>
+      </div>
+    </div>
+
+    <div class="card">
+      <img src="kkn.JPG" alt="Microsoft Office Training" class="project-img">
+
+      <div class="project-top">
+        <div>
+          <h3>Microsoft Office Training at SMP 1 Pagelaran Malang</h3>
+          <p class="meta">Microsoft • Field Study and Community Service</p>
+        </div>
+        <span class="chip">Workshop</span>
+      </div>
+
+      <ul>
+        <li>Organized a Microsoft Office training program for students of SMP 1 Pagelaran Malang.</li>
+        <li>Optimized the utilization of the school’s computer facilities to ensure more productive and structured use.</li>
+        <li>Improved students’ understanding of Microsoft Office, with the average post-test score reaching 84/100, up from a pre-test average of 56/100 (approximately ±50% improvement).</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- EXPERIENCE -->
+  <section class="container section reveal" id="experience">
+    <h2>Work Experience</h2>
+    <p class="tagline">
+      Roles and responsibilities I have undertaken in operational and project environments.
+    </p>
+
+    <div class="card timeline">
+      <div class="t-item">
+        <h3>Kantor Konsultan Pajak Suhardhi dan Rekan</h3>
+        <p class="meta">Project Manager Intern • Jan 2026 – Now • Cirebon</p>
+        <ul>
+          <li><i>Implemented a notification automation system using JavaScript to manage the workflow of tax-related forms, inputs, and documents, accelerating communication between non-professional users and tax professionals, while centralizing processes to ensure better structure, documentation, and monitoring. </i></li>
+          <li>Initiated a domain and selected a hosting provider to establish the organization’s digital infrastructure, then procured a digital workflow transformation by centralizing cloud-based document management and optimizing team collaboration through Google Workspace.</li>
+          <li>Led the implementation of a digital invoicing system by analyzing and comparing multiple payment gateway vendors based on features, costs, and company requirements. Automated the billing process, eliminated manual reconciliation, and implemented automated notifications, invoice expiration periods, and payment reminders to enhance cash flow control and reduce late payments.</li>
+          <li>Proposed the adoption of digital virtual business cards by evaluating multiple platform providers to replace physical business cards, enhancing professionalism, simplifying contact distribution, and improving cost efficiency.</li>
+          <li>Improved operational efficiency by approximately ±80% through workflow simplification and optimization of real-time cloud-based collaboration.</li>
+        </ul>
+      </div>
+
+      <div class="t-item">
+        <h3>PT Telekomunikasi Indonesia</h3>
+        <p class="meta">Access and Service Operation Intern • Jul 2024 – Oct 2024 • Cirebon</p>
+        <ul>
+          <li>Provided technical support in handling daily IndiHome customer issues through service and network troubleshooting, as well as performing infrastructure maintenance to ensure smooth installation processes and service operations.</li>
+          <li>Automated operational workflows by developing and implementing four JavaScript-based Telegram bots, covering daily order reporting, technician performance recapitulation, order status checking, and centralized customer data retrieval.</li>
+          <li>Streamlined the monitoring process and reduced manual checking time by approximately ±50%.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ORGANIZATION -->
+  <section class="container section reveal" id="org">
+    <h2>Organization and Committee</h2>
+    <p class="tagline">
+      Organizational and committee activities that have strengthened my teamwork, leadership, and sense of responsibility.
+    </p>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Baseball – Softball Brawijaya</h3>
+        <p class="meta">Staff of Human Resource Development • Apr 2023 – Dec 2023</p>
+        <ul>
+          <li>Responsible for organizing training and orientation programs for new student organization members.</li>
+          <li>Initiated internal activities such as the first gathering event and a communal iftar.</li>
+          <li>Successfully increased the number of new members compared to the previous period.</li>
+        </ul>
+        <p class="meta" style="margin-top:14px">Staff of Field Coordinator • Apr 2022 – Dec 2022</p>
+        <ul>
+          <li>Organized regular training schedules.</li>
+          <li>Supervised training sessions to ensure alignment with the established program.</li>
+          <li>Evaluated team performance and training effectiveness.</li>
+          <li>Successfully led the team to win 1st place in the East Java Student Softball League 2022.</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Smansa University Day 2022</h3>
+        <p class="meta">Staf Acara • Okt 2021 – Jan 2022</p>
+        <ul>
+          <li>Menyusun rangkaian acara dan mengawasi jalannya acara.</li>
+          <li>Menjadi moderator antara mahasiswa dan pelajar SMA.</li>
+        </ul>
+
+        <hr style="border:0;border-top:1px solid var(--stroke);margin:16px 0"/>
+
+        <h3>Baseball Softball SMA Negeri 1 Cirebon</h3>
+        <p class="meta">Secretary • Jun 2019 – Jun 2020</p>
+        <ul>
+          <li>Served as a liaison between the management board, members, and the school administration.</li>
+          <li>Prepared periodic attendance reports for members.</li>
+          <li>Drafted and archived incoming and outgoing correspondence.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATION -->
+  <section class="container section reveal" id="cert">
+    <h2>Certification and Achievements</h2>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Certification</h3>
+        <ul>
+          <li><b>Microsoft Office Desktop Application</b> — Trust Training Partners (Nov 2024)</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3>Achievements</h3>
+        <ul>
+          <li>2nd Place in the 2025 East Java Student Softball League</li>
+          <li>2nd Place in the 2023 East Java Student Softball League</li>
+          <li>1st Place in the 2022 East Java Student Softball League</li>
+          <li>1st Place in High School Baseball Championship</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="container section reveal" id="contact">
+    <h2>Contact</h2>
+    <p class="tagline">If you are interested in collaboration opportunities or recruitment inquiries, please feel free to contact me.</p>
+
+    <div class="card">
+      <p><b>Email:</b> <a href="mailto:bahrululum223@gmail.com">bahrululum223@gmail.com</a></p>
+      <p><b>WhatsApp:</b> <a href="https://wa.me/6282240249489" target="_blank" rel="noreferrer">+62 822-4024-9489</a></p>
+      <p><b>LinkedIn:</b> <a href="https://www.linkedin.com/in/bahrululum223" target="_blank" rel="noreferrer">linkedin.com/in/bahrululum223</a></p>
+      <p><b>Location:</b> Cirebon, Jawa Barat</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      © <span id="year"></span> Muhammad Bahrul Ulum
+    </div>
+  </footer>
+
+  <button id="toTop">⬆</button>
+
+  <script>
+    // YEAR
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // THEME
+    const root = document.documentElement;
+    const savedTheme = localStorage.getItem("theme");
+    if(savedTheme==="light") root.classList.add("light");
+
+    const themeBtn = document.getElementById("themeBtn");
+    const themeBtnMobile = document.getElementById("themeBtnMobile");
+
+    function toggleTheme(){
+      root.classList.toggle("light");
+      localStorage.setItem("theme", root.classList.contains("light") ? "light" : "dark");
+    }
+    if(themeBtn) themeBtn.onclick = toggleTheme;
+
+    // show mobile theme btn when menu hidden
+    function handleMobileBtn(){
+      if(window.innerWidth <= 900){
+        themeBtnMobile.style.display = "inline-flex";
+        themeBtnMobile.onclick = toggleTheme;
+      } else {
+        themeBtnMobile.style.display = "none";
+      }
+    }
+    window.addEventListener("resize", handleMobileBtn);
+    handleMobileBtn();
+
+    // REVEAL + SKILL BAR
+    const observer = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          e.target.classList.add("show");
+          e.target.querySelectorAll("[data-skill]").forEach(b=>{
+            b.style.width = b.dataset.skill + "%";
+          });
+        }
+      });
+    },{threshold:.2});
+    document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+
+    // ACTIVE NAV
+    const links=document.querySelectorAll(".menu a");
+    window.addEventListener("scroll",()=>{
+      let fromTop=window.scrollY+120;
+      links.forEach(link=>{
+        let sec=document.querySelector(link.getAttribute("href"));
+        if(sec && sec.offsetTop<=fromTop && sec.offsetTop+sec.offsetHeight>fromTop){
+          links.forEach(l=>l.classList.remove("active"));
+          link.classList.add("active");
+        }
+      });
+    });
+
+    // SCROLL TOP
+    const toTop=document.getElementById("toTop");
+    window.addEventListener(
+      "scroll",
+      ()=>toTop.style.display=window.scrollY>500?"block":"none"
+    );
+    toTop.onclick=()=>window.scrollTo({top:0,behavior:"smooth"});
+  </script>
+</body>
+</html>
