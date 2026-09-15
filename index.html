@@ -136,41 +136,140 @@
   </section>
 
   <!-- PROJECTS -->
-  
+
 <section class="container section reveal" id="projects">
   <h2>Featured Projects</h2>
   <p class="tagline">
     A selection of software engineering projects demonstrating desktop application development, computer vision, game development, automation, and UI/UX design.
   </p>
-  
+
   <div class="grid-2">
 
+    <!-- 1. Internal Web Portal Design -->
     <div class="card">
-        <img src="absensi.png" alt="Attendance Application" class="project-img">
-      </a>
+      <img src="dashboard.png"
+           alt="Internal Web Portal Design"
+           class="project-img">
 
       <div class="project-top">
         <div>
-          <h3>Attendance Management Application</h3>
-          <p class="meta">Figma • UI/UX Design</p>
+          <h3>Internal Web Portal Design</h3>
+          <p class="meta">Figma • UI/UX Design • Business Requirement Document</p>
         </div>
-        <span class="chip">Design</span>
+        <span class="chip">Web Design</span>
       </div>
 
       <ul>
-        <li>Designed a mobile attendance management application.</li>
-        <li>Created user flow and interactive prototype in Figma.</li>
-        <li>Focused on user-friendly experience and attendance monitoring.</li>
+        <li>Designed an internal web portal to centralize company information, SOP, HR forms, important links, and organizational information.</li>
+        <li>Created the web interface and user flow in Figma with a focus on clear navigation and usability for internal users.</li>
+        <li>Prepared a Business Requirement Document (BRD) covering the project background, requirements, information architecture, and page structure.</li>
       </ul>
 
       <div class="project-links">
-        <a href="https://bahrululum223.github.io/Attendance/" target="_blank" class="btn btn-primary">
-          View Prototype
+        <a href="https://www.figma.com/proto/sZXbte7yyHJt6ZtBReGcsu/Dashboard-Internal?node-id=2-3&p=f&t=sMgTOuQWPtqi4bFN-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A3"
+           target="_blank" rel="noreferrer" class="btn btn-primary">
+          View Figma Design
+        </a>
+
+        <a href="https://docs.google.com/document/d/1Zg49TzqwlYPAtHSTYwOhkDv1bJMOpXbe1hVLZpLHp8o/edit?usp=sharing"
+           target="_blank" rel="noreferrer" class="btn btn-ghost">
+          View BRD
         </a>
       </div>
     </div>
 
-        <div class="card">
+    <!-- 2. Calculator & Unit Converter -->
+    <div class="card">
+      <img src="calculator.png"
+           alt="Calculator & Unit Converter"
+           class="project-img">
+
+      <div class="project-top">
+        <div>
+          <h3>Calculator & Unit Converter</h3>
+          <p class="meta">Python • Tkinter • Desktop Application</p>
+        </div>
+        <span class="chip">Desktop</span>
+      </div>
+
+      <ul>
+        <li>Built a desktop application integrating a scientific calculator with a multi-category unit converter.</li>
+        <li>Developed advanced mathematical functions, including trigonometric operations, logarithms, exponents, and square roots.</li>
+        <li>Designed a responsive GUI with tab-based navigation, dynamic unit selection, and real-time calculation results.</li>
+      </ul>
+
+      <div class="project-links">
+        <a href="https://github.com/bahrululum223/Calculator-Converter"
+           target="_blank"
+           rel="noreferrer"
+           class="btn btn-primary">
+          View Source Code
+        </a>
+      </div>
+    </div>
+
+    <!-- 3. Personal Finance Management -->
+    <div class="card">
+      <img src="finance.png"
+           alt="Personal Finance Management"
+           class="project-img">
+
+      <div class="project-top">
+        <div>
+          <h3>Personal Finance Management Application</h3>
+          <p class="meta">Python • SQLite • Tkinter</p>
+        </div>
+        <span class="chip">Finance</span>
+      </div>
+
+      <ul>
+        <li>Built a desktop finance management application with transaction recording and categorized income/expense tracking.</li>
+        <li>Implemented SQLite-based CRUD operations with automatic local data storage.</li>
+        <li>Designed a modern, responsive desktop UI with intuitive navigation and transaction history management.</li>
+      </ul>
+
+      <div class="project-links">
+        <a href="https://github.com/bahrululum223/Keuangan"
+           target="_blank"
+           rel="noreferrer"
+           class="btn btn-primary">
+          View Source Code
+        </a>
+      </div>
+    </div>
+
+    <!-- 4. Real-Time Camera Text Reader -->
+    <div class="card">
+      <img src="ocr.png"
+           alt="Real-Time Camera Text Reader"
+           class="project-img">
+
+      <div class="project-top">
+        <div>
+          <h3>Real-Time Camera Text Reader</h3>
+          <p class="meta">Python • OpenCV • Tesseract OCR</p>
+        </div>
+        <span class="chip">Computer Vision</span>
+      </div>
+
+      <ul>
+        <li>Built a real-time OCR application capable of extracting text from a live webcam feed using OpenCV and Tesseract OCR.</li>
+        <li>Developed an image preprocessing pipeline (grayscale, noise reduction, adaptive thresholding, and image scaling) to improve text recognition accuracy.</li>
+        <li>Enhanced application reliability through camera validation, OCR error handling, and optimized image capture workflow.</li>
+      </ul>
+
+      <div class="project-links">
+        <a href="https://github.com/bahrululum223/Camera-Text-Reader"
+           target="_blank"
+           rel="noreferrer"
+           class="btn btn-primary">
+          View Source Code
+        </a>
+      </div>
+    </div>
+
+    <!-- 5. Space Shooter Game -->
+    <div class="card">
       <img src="space shooter.png"
            alt="Space Shooter Game"
            class="project-img">
@@ -178,31 +277,15 @@
       <div class="project-top">
         <div>
           <h3>Space Shooter Game</h3>
-          <p class="meta">
-            Python • Pygame • Game Development
-          </p>
+          <p class="meta">Python • Pygame • Game Development</p>
         </div>
         <span class="chip">Game</span>
       </div>
 
       <ul>
-        <li>
-          Developed a 2D space shooter game using Python and Pygame,
-          featuring player movement, shooting mechanics, enemies,
-          collision detection, scoring, and a health system.
-        </li>
-
-        <li>
-          Implemented object-oriented programming concepts to manage
-          game components such as the player, enemies, projectiles,
-          and game states.
-        </li>
-
-        <li>
-          Designed an interactive gameplay loop with increasing
-          difficulty, enemy spawning, score tracking, and game-over
-          mechanics.
-        </li>
+        <li>Developed a 2D space shooter game using Python and Pygame, featuring player movement, shooting mechanics, enemies, collision detection, scoring, and a health system.</li>
+        <li>Implemented object-oriented programming concepts to manage game components such as the player, enemies, projectiles, and game states.</li>
+        <li>Designed an interactive gameplay loop with increasing difficulty, enemy spawning, score tracking, and game-over mechanics.</li>
       </ul>
 
       <div class="project-links">
@@ -214,128 +297,42 @@
         </a>
       </div>
     </div>
-    
+
+    <!-- 6. Employee Attendance -->
     <div class="card">
-  <img src="calculator.png"
-       alt="Calculator & Unit Converter"
-       class="project-img">
+      <img src="absensi.png"
+           alt="Employee Attendance Application"
+           class="project-img">
 
-  <div class="project-top">
-    <div>
-      <h3>Calculator & Unit Converter</h3>
-      <p class="meta">Python • Tkinter • Desktop Application</p>
+      <div class="project-top">
+        <div>
+          <h3>Employee Attendance</h3>
+          <p class="meta">Figma • UI/UX Design • AppSheet • Google Sheets</p>
+        </div>
+        <span class="chip">Automation</span>
+      </div>
+
+      <ul>
+        <li>Developed an end-to-end employee attendance application using Figma, Google Sheets, and AppSheet.</li>
+        <li>Implemented GPS-based attendance verification, selfie validation, automated work-hour calculations, and real-time reporting.</li>
+        <li>Designed the workflow to streamline attendance processes while improving data accuracy, visibility, and operational efficiency.</li>
+      </ul>
+
+      <div class="project-links">
+        <a href="https://bahrululum223.github.io/Attendance/"
+           target="_blank"
+           rel="noreferrer"
+           class="btn btn-primary">
+          View Prototype
+        </a>
+      </div>
     </div>
-    <span class="chip">Desktop</span>
-  </div>
 
-  <ul>
-    <li>Built a desktop application integrating a scientific calculator with a multi-category unit converter.</li>
-    <li>Developed advanced mathematical functions, including trigonometric operations, logarithms, exponents, and square roots.</li>
-    <li>Designed a responsive GUI with tab-based navigation, dynamic unit selection, and real-time calculation results.</li>
-  </ul>
-
-  <div class="project-links">
-    <a href="https://github.com/bahrululum223/Calculator-Converter"
-       target="_blank"
-       rel="noreferrer"
-       class="btn btn-primary">
-      View Source Code
-    </a>
-  </div>
-</div>
-    
+    <!-- 7. Microsoft Office Training -->
     <div class="card">
-  <img src="finance.png"
-       alt="Personal Finance Management"
-       class="project-img">
-
-  <div class="project-top">
-    <div>
-      <h3>Personal Finance Management Application</h3>
-      <p class="meta">Python • SQLite • Tkinter</p>
-    </div>
-    <span class="chip">Finance</span>
-  </div>
-
-  <ul>
-    <li>Built a desktop finance management application with transaction recording and categorized income/expense tracking.</li>
-    <li>Implemented SQLite-based CRUD operations with automatic local data storage.</li>
-    <li>Designed a modern, responsive desktop UI with intuitive navigation and transaction history management.</li>
-  </ul>
-
-  <div class="project-links">
-    <a href="https://github.com/bahrululum223/Keuangan"
-       target="_blank"
-       rel="noreferrer"
-       class="btn btn-primary">
-      View Source Code
-    </a>
-  </div>
-</div>
-
-    <div class="card">
-  <img src="ocr.png"
-       alt="Real-Time Camera Text Reader"
-       class="project-img">
-
-  <div class="project-top">
-    <div>
-      <h3>Real-Time Camera Text Reader</h3>
-      <p class="meta">Python • OpenCV • Tesseract OCR</p>
-    </div>
-    <span class="chip">Computer Vision</span>
-  </div>
-
-  <ul>
-    <li>Built a real-time OCR application capable of extracting text from a live webcam feed using OpenCV and Tesseract OCR.</li>
-    <li>Developed an image preprocessing pipeline (grayscale, noise reduction, adaptive thresholding, and image scaling) to improve text recognition accuracy.</li>
-    <li>Enhanced application reliability through camera validation, OCR error handling, and optimized image capture workflow.</li>
-  </ul>
-
-  <div class="project-links">
-    <a href="https://github.com/bahrululum223/Camera-Text-Reader"
-       target="_blank"
-       rel="noreferrer"
-       class="btn btn-primary">
-      View Source Code
-    </a>
-  </div>
-</div>
-
-<div class="card">
-  <img src="dashboard.png"
-       alt="Internal Web Portal Design"
-       class="project-img">
-
-  <div class="project-top">
-    <div>
-      <h3>Internal Web Portal Design</h3>
-      <p class="meta">Figma • UI/UX Design • Business Requirement Document</p>
-    </div>
-    <span class="chip">Web Design</span>
-  </div>
-
-  <ul>
-    <li>Designed an internal web portal to centralize company information, SOP, HR forms, important links, and organizational information.</li>
-    <li>Created the web interface and user flow in Figma with a focus on clear navigation and usability for internal users.</li>
-    <li>Prepared a Business Requirement Document (BRD) covering the project background, requirements, information architecture, and page structure.</li>
-  </ul>
-
-  <div class="project-links">
-    <a href="https://www.figma.com/proto/sZXbte7yyHJt6ZtBReGcsu/Dashboard-Internal?node-id=2-3&p=f&t=sMgTOuQWPtqi4bFN-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=2%3A3"
-       target="_blank" rel="noreferrer" class="btn btn-primary">
-      View Figma Design
-    </a>
-
-    <a href="https://docs.google.com/document/d/1Zg49TzqwlYPAtHSTYwOhkDv1bJMOpXbe1hVLZpLHp8o/edit?usp=sharing"
-       target="_blank" rel="noreferrer" class="btn btn-ghost">
-      View BRD
-    </a>
-  </div>
-</div>
-
-    <div class="card">
-      <img src="kkn.JPG" alt="Microsoft Office Training" class="project-img">
+      <img src="kkn.JPG"
+           alt="Microsoft Office Training"
+           class="project-img">
 
       <div class="project-top">
         <div>
@@ -351,9 +348,10 @@
         <li>Improved students’ understanding of Microsoft Office, with the average post-test score reaching 84/100, up from a pre-test average of 56/100 (approximately ±50% improvement).</li>
       </ul>
     </div>
-    
+
   </div>
 </section>
+
 
 
   <!-- EXPERIENCE -->
